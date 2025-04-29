@@ -84,7 +84,7 @@ const HomeContact = () => {
             </div>
             <div className="h-12">
               <div>Office Address</div>
-              <div className="font-light">Pels</div>
+              <div className="font-light">Accra</div>
             </div>
           </div>
 
