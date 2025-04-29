@@ -1,0 +1,83 @@
+Custom Chatbot Styles
+.koan-chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 350px;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    font-family: var(--font-montserrat);
+  }
+  
+  .koan-chatbot-header {
+    background-color: #1E40AF; /* Your primary color */
+    color: white;
+    padding: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .koan-chatbot-messages {
+    background-color: #f9fafb;
+    height: calc(100% - 120px);
+    padding: 15px;
+    overflow-y: auto;
+  }
+  
+  .koan-chatbot-input {
+    background-color: white;
+    padding: 15px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .koan-chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #1E40AF;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+    z-index: 1000;
+    border: none;
+    outline: none;
+  }
+  
+  /* Message bubbles */
+  .koan-bot-message {
+    background-color: #e5e7eb;
+    color: #111827;
+    border-radius: 18px 18px 18px 4px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+  }
+  
+  .koan-user-message {
+    background-color: #1E40AF;
+    color: white;
+    border-radius: 18px 18px 4px 18px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    max-width: 80%;
+    word-wrap: break-word;
+  }
+
+
+.react-chatbot-kit-chat-header {
+    background-color: #4A00C3;
+    color: #fff;
+}
