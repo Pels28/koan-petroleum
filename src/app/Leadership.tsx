@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import Chip from "@/components/Chip";
 import TeamMemberCard from "@/components/TeamMemberCard";
 import { Divider } from "@heroui/react";
+import Link from "next/link";
+import { slugify } from "@/utils";
 
 const Leadership = () => {
   return (
@@ -50,25 +52,31 @@ const Leadership = () => {
           {
             image: "https://heroui.com/images/hero-card-complete.jpeg",
             name: "Kofi Antwi",
-            position: "Chief Executive Officer",
+            position: "Board Chairman",
+            slug: "kofi-antwi"
           },
           {
             image: "https://heroui.com/images/hero-card-complete.jpeg",
             name: "Alice Quaicoe",
-            position: "Chief Executive Officer",
+            position: "Member",
+            slug: "alice-quaicoe"
           },
           {
             image: "https://heroui.com/images/hero-card-complete.jpeg",
             name: "Michael Yeboah Antwi",
-            position: "Managing Director",
+            position: "Member",
+            slug: "michael-yeboah-antwi"
           },
         ].map((member, index) => (
+          <Link href={`about-us/board-of-directors/${member.slug}`}   key={index}>
           <motion.div
-            key={index}
+           
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+            className="cursor-pointer"
+
           >
             <TeamMemberCard
               image={member.image}
@@ -76,6 +84,7 @@ const Leadership = () => {
               position={member.position}
             />
           </motion.div>
+          </Link>
         ))}
       </motion.div>
 
@@ -102,20 +111,12 @@ const Leadership = () => {
         transition={{ duration: 0.6, delay: 0.4 }}
       >
         {[
-          {
-            image: "https://heroui.com/images/hero-card-complete.jpeg",
-            name: "Kofi Antwi",
-            position: "Chief Executive Officer",
-          },
-          {
-            image: "https://heroui.com/images/hero-card-complete.jpeg",
-            name: "Alice Quaicoe",
-            position: "Chief Executive Officer",
-          },
+      
           {
             image: "https://heroui.com/images/hero-card-complete.jpeg",
             name: "Michael Yeboah Antwi",
             position: "Managing Director",
+            
           },
           {
             image: "https://heroui.com/images/hero-card-complete.jpeg",
@@ -138,6 +139,7 @@ const Leadership = () => {
             position: "Accounts & Administrative Manager",
           },
         ].map((member, index) => (
+          <Link href={`about-us/management-team/${slugify(member.name)}`}   key={index}>
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
@@ -151,6 +153,7 @@ const Leadership = () => {
               position={member.position}
             />
           </motion.div>
+          </Link>
         ))}
       </motion.div>
     </div>

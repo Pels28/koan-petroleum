@@ -4,8 +4,6 @@ import { Divider, Image } from "@heroui/react";
 import ServicesCarousel from "./ServicesCarousel";
 import { motion } from "framer-motion";
 
-
-
 const ServicesContent = () => {
   const amenities = [
     {
@@ -34,10 +32,16 @@ const ServicesContent = () => {
   return (
     <section className="font-montserrat">
       <div className="w-full h-[450px] bg-servicesOverlay bg-center bg-cover bg-no-repeat flex items-center justify-center">
-        <div className="text-center mt-10 pt-10">
+        <div className="flex flex-col items-center justify-center text-center mt-10 pt-10">
           <div className="text-[100px] text-white font-montserrat font-bold">
             Our Services
           </div>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "158px" }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="h-1 w-7 rounded-xl bg-white"
+          />
         </div>
       </div>
 
@@ -56,7 +60,13 @@ const ServicesContent = () => {
           Our <span className="text-primary">Services</span> And{" "}
           <span className="text-primary">Amenities</span>
         </p>
-        <Divider className="w-10 h-1 bg-primary" />
+        {/* <Divider className="w-10 h-1 bg-primary" /> */}
+        <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: '100px' }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="h-1 w-7 mt-2 rounded-xl bg-primary"
+      />
       </div>
 
       {amenities.map((item, index) => {

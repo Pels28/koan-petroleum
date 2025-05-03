@@ -42,6 +42,8 @@ module.exports = {
         contactOverlay: "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/koan-contact.jpg')",
         blackOverlay: "url('/images/black-overlay.jpg')",
         newsOverlay: "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/new-image.jpg')",
+        careersOverlay: "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/time-bg.jpg')",
+        managementOverlay: "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/manage-bg.png')",
       },
     },
   },

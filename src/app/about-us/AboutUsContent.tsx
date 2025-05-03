@@ -16,6 +16,12 @@ const AboutUsContent = () => {
         <div className="text-[100px] text-white font-montserrat font-bold">
           About Us
         </div>
+        <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: '150px' }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="h-[2px] bg-white mx-auto mb-6"
+      />
       </div>
     </div>
 
@@ -53,7 +59,13 @@ const AboutUsContent = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <i className="font-light">Our Mission</i>
-          <Divider className="w-7 h-1 bg-primary" />
+          {/* <Divider className="w-7 h-1 bg-primary" /> */}
+          <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: '100px' }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="h-1 w-7 rounded-xl bg-primary"
+      />
         </motion.div>
 
         <motion.div 
@@ -93,7 +105,12 @@ const AboutUsContent = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <i className="font-light">Vision Statement</i>
-          <Divider className="w-7 h-1 bg-primary" />
+          <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: '100px' }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="h-1 w-7 rounded-xl bg-primary"
+      />
         </motion.div>
 
         <motion.p 
@@ -115,7 +132,12 @@ const AboutUsContent = () => {
           <p className="text-5xl">
             Our <span className="text-primary">Core</span> Values
           </p>
-          <Divider className="w-10 h-1 bg-primary" />
+          <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: '100px' }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="h-1 w-7 rounded-xl bg-primary"
+      />
         </div>
 
         <div className="grid grid-cols-2 gap-10">

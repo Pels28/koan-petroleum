@@ -39,7 +39,7 @@ const HomeContent = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="text-white text-3xl md:text-4xl font-montserrat font-bold mt-[-10px]"
             >
-              Always on your mind!
+              Always on your way!
             </motion.p>
 
             {/* Description with animation */}
@@ -150,6 +150,7 @@ const HomeContent = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.7 }}
         >
+          <Link href="/our-services">
           <Button
             className=""
             color="primary"
@@ -162,6 +163,7 @@ const HomeContent = () => {
           >
             More Services
           </Button>
+          </Link>
         </motion.div>
       </div>
 

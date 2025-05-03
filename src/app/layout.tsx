@@ -8,8 +8,8 @@ import Footer from "@/components/Footer";
 import { Divider  } from "@heroui/react";
 import FuelPricesBoard from "./FuelPricesBoard";
 
-import KoanChatbot from "@/components/Chatbot";
 import Link from "next/link";
+import Script from "next/script";
 // import Link from "next/link";
 
 export const poppins = Poppins({
@@ -51,6 +51,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="min-h-screen overflow-x-hidden">
+     <Script
+        id="tawk-script"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function() {
+              var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+              s1.async = true;
+              s1.src = 'https://embed.tawk.to/6812449e5d29791919edeabb/1iq3lo44u';
+              s1.charset = 'UTF-8';
+              s1.setAttribute('crossorigin', '*');
+              s0.parentNode.insertBefore(s1, s0);
+            })();
+          `,
+        }}
+      />
       <body
         className={` ${poppins.variable} ${montserrat.variable} ${lato.variable} antialiased  min-h-screen flex flex-col overflow-x-hidden`}
       >
@@ -80,7 +97,7 @@ export default function RootLayout({
 
           <main className="flex-grow w-full relative overflow-hidden">
             {children}
-            <KoanChatbot /> {/* Add chatbot here */}
+            {/* <KoanChatbot /> Add chatbot here */}
           </main>
 
   

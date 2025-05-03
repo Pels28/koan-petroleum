@@ -1,3 +1,4 @@
+"use client"
 import Chip from "@/components/Chip";
 import { Divider } from "@heroui/react";
 import { FaLocationDot } from "react-icons/fa6";
@@ -10,6 +11,7 @@ import Input from "@/components/Input";
 import TextArea from "@/components/TextArea";
 import { IoIosSend } from "react-icons/io";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 const ContactUsContent = () => {
 
@@ -43,10 +45,16 @@ const ContactUsContent = () => {
 
     return  <section className="font-montserrat">
     <div className="w-full h-[450px] bg-contactOverlay bg-center bg-cover bg-no-repeat flex items-center justify-center">
-      <div className="text-center mt-10 pt-10">
+      <div className="flex flex-col items-center justify-center text-center mt-10 pt-10">
         <div className="text-[100px] text-white font-montserrat font-bold">
           Contact Us
         </div>
+        <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: '100px' }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="h-1 w-7 rounded-xl bg-white"
+      />
       </div>
     </div>
 
