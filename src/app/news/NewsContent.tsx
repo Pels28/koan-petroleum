@@ -89,31 +89,30 @@ const NewsContent = () => {
   return (
     <section className="font-montserrat">
       {/* Hero Section */}
-      <div className="relative w-full h-[450px] bg-newsOverlay bg-center bg-cover bg-no-repeat flex items-center justify-center">
+      <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] bg-newsOverlay bg-center bg-cover bg-no-repeat flex items-center justify-center">
         <motion.div
-          className="relative flex flex-col items-center justify-center z-10 text-center"
+          className="relative flex flex-col items-center justify-center z-10 text-center px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl text-white font-bold mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-bold mb-2 sm:mb-3 md:mb-4">
             News & Media
           </h1>
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: "100px" }}
+            animate={{ width: "80px sm:w-[100px]" }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="h-1 w-7 mb-4 rounded-xl bg-white"
+            className="h-1 w-7 mb-3 sm:mb-4 rounded-xl bg-white"
           />
-          <p className="text-xl text-white max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white max-w-md sm:max-w-lg md:max-w-2xl mx-auto">
             Stay updated with the latest from KOAN Petroleum
           </p>
-       
         </motion.div>
       </div>
 
       {/* Featured News */}
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 py-16 max-md:px-4 max-sm:px-3">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -130,7 +129,7 @@ const NewsContent = () => {
         </motion.div>
 
         <motion.h2
-          className="text-4xl font-bold mt-6 mb-8"
+          className="text-4xl font-bold mt-6 mb-8 max-md:text-3xl max-sm:text-2xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -139,7 +138,7 @@ const NewsContent = () => {
           Latest <span className="text-primary">Updates</span>
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 max-md:gap-6">
           {featuredNews.map((news, index) => (
             <motion.div
               key={news.id}
@@ -155,32 +154,36 @@ const NewsContent = () => {
                   radius="none"
                   src={news.image}
                   alt={news.title}
-                  className="w-[100%]  h-96 object-cover"
+                  className="w-[100%] h-96 object-cover max-md:h-64"
                 />
               </div>
 
-              <div className="p-6">
-                <div className="flex items-center text-sm text-gray-500 mb-2">
+              <div className="p-6 max-md:p-4">
+                <div className="flex items-center text-sm text-gray-500 mb-2 max-md:flex-wrap max-md:gap-2">
                   <span className="bg-primary/10 text-primary px-3 py-1 rounded-full">
                     {news.category}
                   </span>
-                  <span className="mx-2">•</span>
+                  <span className="mx-2 max-md:hidden">•</span>
                   <span className="flex items-center">
                     <FiCalendar className="mr-1" /> {news.date}
                   </span>
-                  <span className="mx-2">•</span>
+                  <span className="mx-2 max-md:hidden">•</span>
                   <span className="flex items-center">
                     <FiClock className="mr-1" /> {news.readTime}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{news.title}</h3>
-                <p className="text-gray-600 mb-4">{news.excerpt}</p>
+                <h3 className="text-2xl font-bold mb-3 max-md:text-xl">
+                  {news.title}
+                </h3>
+                <p className="text-gray-600 mb-4 max-md:text-sm">
+                  {news.excerpt}
+                </p>
                 <Button
                   color="primary"
                   variant="light"
                   size="lg"
                   radius="md"
-                  className=""
+                  className="max-md:w-full"
                   endContent={<FaArrowRightLong />}
                 >
                   Read Full Story
@@ -392,10 +395,11 @@ const NewsContent = () => {
 
       {/* Newsletter Signup */}
       <div className="bg-gradient-to-r from-primary to-secondary py-16">
-        <div className="container mx-auto px-6">
-          <Subscribe />
-        </div>
+        
+        
+      
       </div>
+      <Subscribe />
     </section>
   );
 };

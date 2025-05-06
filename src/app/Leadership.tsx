@@ -8,10 +8,10 @@ import { slugify } from "@/utils";
 
 const Leadership = () => {
   return (
-    <div className="font-montserrat p-10 bg-tertiary space-y-10">
+    <div className="font-montserrat p-10 bg-tertiary space-y-10 max-md:p-5">
       {/* Chip Section */}
       <motion.div 
-        className="flex flex-col gap-5 w-[60%]"
+        className="flex flex-col gap-5 w-[60%] max-md:w-[80%] max-sm:w-full"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -42,7 +42,7 @@ const Leadership = () => {
       </motion.div>
 
       <motion.div 
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-sm:gap-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -68,22 +68,20 @@ const Leadership = () => {
             slug: "michael-yeboah-antwi"
           },
         ].map((member, index) => (
-          <Link href={`about-us/board-of-directors/${member.slug}`}   key={index}>
-          <motion.div
-           
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-            className="cursor-pointer"
-
-          >
-            <TeamMemberCard
-              image={member.image}
-              name={member.name}
-              position={member.position}
-            />
-          </motion.div>
+          <Link href={`about-us/board-of-directors/${member.slug}`} key={index}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+              className="cursor-pointer"
+            >
+              <TeamMemberCard
+                image={member.image}
+                name={member.name}
+                position={member.position}
+              />
+            </motion.div>
           </Link>
         ))}
       </motion.div>
@@ -104,19 +102,17 @@ const Leadership = () => {
       </motion.div>
 
       <motion.div 
-        className="grid grid-cols-3 gap-5"
+        className="grid grid-cols-3 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:gap-4 "
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
         {[
-      
           {
             image: "https://heroui.com/images/hero-card-complete.jpeg",
             name: "Michael Yeboah Antwi",
             position: "Managing Director",
-            
           },
           {
             image: "https://heroui.com/images/hero-card-complete.jpeg",
@@ -139,20 +135,20 @@ const Leadership = () => {
             position: "Accounts & Administrative Manager",
           },
         ].map((member, index) => (
-          <Link href={`about-us/management-team/${slugify(member.name)}`}   key={index}>
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-          >
-            <TeamMemberCard
-              image={member.image}
-              name={member.name}
-              position={member.position}
-            />
-          </motion.div>
+          <Link href={`about-us/management-team/${slugify(member.name)}`} key={index}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+              className="mb-5"
+            >
+              <TeamMemberCard
+                image={member.image}
+                name={member.name}
+                position={member.position}
+              />
+            </motion.div>
           </Link>
         ))}
       </motion.div>

@@ -1,6 +1,6 @@
 "use client";
 import Chip from "@/components/Chip";
-import { Divider, Image } from "@heroui/react";
+import {Image } from "@heroui/react";
 import ServicesCarousel from "./ServicesCarousel";
 import { motion } from "framer-motion";
 
@@ -31,21 +31,21 @@ const ServicesContent = () => {
 
   return (
     <section className="font-montserrat">
-      <div className="w-full h-[450px] bg-servicesOverlay bg-center bg-cover bg-no-repeat flex items-center justify-center">
-        <div className="flex flex-col items-center justify-center text-center mt-10 pt-10">
-          <div className="text-[100px] text-white font-montserrat font-bold">
+      <div className="w-full h-[450px] bg-servicesOverlay bg-center bg-cover bg-no-repeat flex items-center justify-center max-md:h-[350px] max-sm:h-[300px]">
+        <div className="flex flex-col items-center justify-center text-center mt-10 pt-10 max-md:mt-5 max-md:pt-5">
+          <div className="text-[100px] text-white font-montserrat font-bold max-md:text-[70px] max-sm:text-[50px]">
             Our Services
           </div>
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "158px" }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="h-1 w-7 rounded-xl bg-white"
+            className="h-1 w-7 rounded-xl bg-white max-md:w-[100px] max-sm:w-[80px]"
           />
         </div>
       </div>
 
-      <div className="p-10 flex flex-col gap-5 w-[60%]">
+      <div className="p-10 flex flex-col gap-5 w-[60%] max-md:w-[80%] max-sm:w-full max-sm:p-5">
         <Chip>
           <div className="flex flex-row items-center gap-4">
             <span className="rounded-full bg-primary h-2 w-2"></span>
@@ -55,20 +55,18 @@ const ServicesContent = () => {
         </Chip>
       </div>
 
-      <div className="px-10 pb-4">
-        <p className="text-5xl">
-          Our <span className="text-primary">Services</span> And{" "}
+      <div className="px-10 pb-4 max-md:px-5">
+        <p className="text-5xl max-md:text-3xl max-sm:text-2xl">
+          Our <span className="text-primary">Services</span> And&nbsp;
           <span className="text-primary">Amenities</span>
         </p>
-        {/* <Divider className="w-10 h-1 bg-primary" /> */}
         <motion.div
-        initial={{ width: 0 }}
-        animate={{ width: '100px' }}
-        transition={{ delay: 0.8, duration: 1 }}
-        className="h-1 w-7 mt-2 rounded-xl bg-primary"
-      />
+          initial={{ width: 0 }}
+          animate={{ width: "100px" }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="h-1 w-7 mt-2 rounded-xl bg-primary"
+        />
       </div>
-
       {amenities.map((item, index) => {
         const isFirst = index === 0;
         const bgColor = isFirst ? "bg-primary" : "bg-white";
@@ -109,11 +107,16 @@ const ServicesContent = () => {
 
       <div className="bg-gradient-to-r h-[150px]  from-primary via-secondary to-tertiary"></div>
 
-      <div className="p-10">
-        <p className="text-5xl">
+      <div className="p-10 max-md:p-5">
+        <p className="text-5xl max-md:text-3xl max-sm:text-2xl">
           What We <span className="text-primary">Do!</span>
         </p>
-        <Divider className="w-10 h-1 bg-primary" />
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "100px" }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="h-1 w-7 mt-2 rounded-xl bg-primary"
+        />
       </div>
 
       <ServicesCarousel />

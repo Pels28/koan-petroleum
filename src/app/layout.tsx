@@ -5,7 +5,7 @@ import Provider from "./Provider";
 import Menu from "@/components/NavBar";
 import Footer from "@/components/Footer";
 // import Link from "next/link";
-import { Divider  } from "@heroui/react";
+import { Divider } from "@heroui/react";
 import FuelPricesBoard from "./FuelPricesBoard";
 
 import Link from "next/link";
@@ -51,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="min-h-screen overflow-x-hidden">
-     <Script
+      <Script
         id="tawk-script"
         strategy="lazyOnload"
         dangerouslySetInnerHTML={{
@@ -72,25 +72,33 @@ export default function RootLayout({
         className={` ${poppins.variable} ${montserrat.variable} ${lato.variable} antialiased  min-h-screen flex flex-col overflow-x-hidden`}
       >
         <Provider>
-          <div className="w-full bg-primary-50 h-14 pr-16 text-white flex items-center justify-end">
-            <div className="flex gap-5 mr-5">
-              <Link className="text-primary" href="/station-locator">Station Locator</Link>
+          <div className="w-full bg-primary-50 h-14 pr-4 md:pr-16 text-white flex items-center justify-end">
+            <div className="flex gap-3 md:gap-5 mr-3 md:mr-5">
+              <Link
+                className="text-primary text-sm md:text-base"
+                href="/station-locator"
+              >
+                Station Locator
+              </Link>
               <Divider
                 orientation="vertical"
-                className="bg-black h-5 w-[1.5px]"
+                className="bg-black h-5 w-[1.5px] block"
               />
             </div>
-            <div className="flex gap-3 mr-5">
-              <Link className="text-primary" href="/sustainabilty">Sustianablilty</Link>
+            <div className="flex gap-3 md:gap-5 mr-3 md:mr-5">
+              <Link
+                className="text-primary text-sm md:text-base"
+                href="/sustainabilty"
+              >
+                Sustianablilty
+              </Link>
               <Divider
                 orientation="vertical"
-                className="bg-black h-5 w-[1.5px]"
+                className="bg-black h-5 w-[1.5px] block"
               />
             </div>
-            <div className="">
-              {/* <Link href="/station-locator">Fuel Prices Board</Link> */}
-            <FuelPricesBoard/>
-            
+            <div className="text-sm md:text-base">
+              <FuelPricesBoard />
             </div>
           </div>
           <Menu />
@@ -100,7 +108,6 @@ export default function RootLayout({
             {/* <KoanChatbot /> Add chatbot here */}
           </main>
 
-  
           <Footer />
         </Provider>
       </body>
