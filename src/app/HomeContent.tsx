@@ -16,40 +16,40 @@ import { motion } from "framer-motion";
 const HomeContent = () => {
   return (
     <section>
-      <div className="relative w-full h-screen min-h-[520px] bg-homeOverlay bg-center bg-cover bg-no-repeat">
+      <div className="relative w-full h-[520px] bg-homeOverlay bg-center bg-cover bg-no-repeat">
         {/* Gradient overlay */}
-        <div className="relative w-full h-screen min-h-[520px] bg-homeOverlay bg-center bg-cover bg-no-repeat">
+        <div className="relative w-full h-[520px] bg-homeOverlay bg-center bg-cover bg-no-repeat">
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-primary/30"></div>
 
           <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
-            <div className="text-center max-w-4xl">
-              {/* Main KOAN text with animation */}
+            <div className="text-center max-w-4xl w-full mx-auto">
+              {/* Main KOAN text with animation - Adjusted responsive sizes */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-[80px] xs:text-[100px] sm:text-[120px] md:text-[150px] lg:text-[180px] text-secondary font-montserrat font-bold leading-none"
+                className="text-[80px] xs:text-[100px] sm:text-[120px] md:text-[150px] lg:text-[180px] xl:text-[200px] text-secondary font-montserrat font-bold leading-none"
               >
                 KOAN
               </motion.div>
 
-              {/* Tagline with animation */}
+              {/* Tagline with animation - Enhanced responsive sizing */}
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-montserrat font-bold mt-[-10px]"
+                className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[2.5rem] font-montserrat font-bold mt-[-10px] sm:mt-[-15px] md:mt-[-20px] lg:mt-[-25px]"
               >
                 Always on your way!
               </motion.p>
 
-              {/* Description with animation */}
+              {/* Description with animation - Improved line heights */}
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-white/90 tracking-wide leading-6 sm:leading-7 md:leading-8 mt-4 sm:mt-6 font-montserrat text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-2 sm:px-4"
+                className="text-white/90 tracking-wide leading-6 sm:leading-7 md:leading-8 lg:leading-9 mt-4 sm:mt-6 md:mt-8 font-montserrat text-base sm:text-lg md:text-xl lg:text-[1.25rem] max-w-3xl mx-auto px-2 sm:px-4"
               >
                 We are a proudly Ghanaian owned oil & gas company dedicated to
                 delivering reliable and sustainable energy solutions nationwide.
@@ -58,17 +58,17 @@ const HomeContent = () => {
                 satisfaction.
               </motion.p>
 
-              {/* Button with animation */}
+              {/* Button with animation - Better responsive margins */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9, duration: 0.8 }}
-                className="mt-6 sm:mt-8"
+                className="mt-6 sm:mt-8 md:mt-10 lg:mt-12"
               >
                 <Link href="/about-us">
                   <Button
                     startContent={<RiFindReplaceLine className="text-lg" />}
-                    className="font-montserrat hover:scale-105 transition-transform"
+                    className="font-montserrat hover:scale-105 transition-transform text-sm sm:text-base md:text-lg"
                     radius="md"
                     variant="solid"
                     size="lg"
