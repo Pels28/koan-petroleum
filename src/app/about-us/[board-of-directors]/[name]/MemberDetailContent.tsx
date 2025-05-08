@@ -466,7 +466,7 @@ const MemberDetailContent = ({ nameOfMember }: MemberDetailContentProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mx-auto bg-white rounded-xl sm:rounded-3xl shadow-md overflow-hidden"
+          className="mx-auto bg-white rounded-xl sm:rounded-3xl shadow-md overflow-hidden mb-6"
         >
           <div className="flex flex-col md:flex-row">
             {/* Image Section */}
@@ -609,7 +609,7 @@ const MemberDetailContent = ({ nameOfMember }: MemberDetailContentProps) => {
         </motion.div>
 
         {/* Footer CTA */}
-        <motion.div
+        {/* <motion.div
           className="mt-8 sm:mt-12 text-center text-gray-500 text-sm sm:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -624,7 +624,7 @@ const MemberDetailContent = ({ nameOfMember }: MemberDetailContentProps) => {
               Get in touch
             </a>
           </p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </>
   );

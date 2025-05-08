@@ -75,7 +75,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-row gap-2 max-md:justify-center">
               <FaLocationDot className="flex w-5 h-5" />
-              <address>Pels</address>
+              <address>Accra</address>
             </div>
             <div className="flex flex-row gap-2 max-md:justify-center">
               <MdMarkEmailRead className="flex w-5 h-5" />

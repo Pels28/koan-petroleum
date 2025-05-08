@@ -17,7 +17,7 @@ const StationContent = () => {
   // Our four available regions
   const availableRegions = [
     "Central Region",
-    "Greater Accra Region",
+    "Ashanti Region",
     "Bono East Region",
     "Western Region",
   ];
