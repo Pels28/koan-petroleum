@@ -12,7 +12,7 @@ import ClientReviews from "./ClientReviews";
 import HomeContact from "./HomeContact";
 import Subscribe from "./Subscribe";
 import { motion } from "framer-motion";
-import GoogleReviews from "@/components/GoogleReviews";
+
 
 const HomeContent = () => {
   return (
@@ -305,7 +305,7 @@ const HomeContent = () => {
       <div className="bg-station h-[500px] bg-center bg-cover bg-no-repeat "></div>
       <HomeContact />
       <Subscribe />
-      <GoogleReviews/>
+      {/* <GoogleReviews/> */}
     </section>
   );
 };
