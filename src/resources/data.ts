@@ -54,7 +54,7 @@ export const teamMembers = [
       {
         slug: "christopher-asare-boriba",
         name: "Christopher Asare-Boriba",
-        position: "Operations Manager & Safety Officer",
+        position: "Operations Manager",
         image: "https://heroui.com/images/hero-card-complete.jpeg",
         bio: "A Science-driven professional with over 15 years of experience in education, quality control and safety management. Brings a unique blend of analytical thinking, leadership and operational expertise.",
         education: [

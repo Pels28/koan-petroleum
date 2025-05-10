@@ -1,6 +1,7 @@
 "use client";
 
 import { Input as NextInput } from "@heroui/react";
+import clsx from "clsx";
 import { ReactNode } from "react";
 
 interface InputProps {
@@ -11,12 +12,16 @@ interface InputProps {
   type: "text" | "email" | "url" | "password" | "tel" | "search" | "file";
   labelPlacement: "inside" | "outside" | "outside-left";
   className?: string;
-  size?: "sm" | "md" | "lg"
-  radius?: "none" | "sm" | "md" | "lg" | "full"
-  fullWidth?: boolean
-  value?: string,
-  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined,
-  startContent?: ReactNode
+  size?: "sm" | "md" | "lg";
+  radius?: "none" | "sm" | "md" | "lg" | "full";
+  fullWidth?: boolean;
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  startContent?: ReactNode;
+  name?: string;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement, Element>) => void;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement, Element>) => void;
+  error?: string;
 }
 
 const Input = ({
@@ -32,11 +37,16 @@ const Input = ({
   fullWidth,
   value,
   onChange,
-  startContent
+  startContent,
+  name,
+  onBlur,
+  onFocus,
+  error,
 }: InputProps) => {
   return (
     <NextInput
-      classNames={{ inputWrapper: ["border-gray", "border-2",] }}
+      name={name}
+      classNames={{ inputWrapper: clsx( "border-2 border-gray font-montserrat", {"border-red": Boolean(error)}, ) }}
       className={className}
       label={label}
       placeholder={placeholder}
@@ -50,6 +60,18 @@ const Input = ({
       value={value}
       onChange={onChange}
       startContent={startContent}
+      onFocus={(e) => {
+        if (onFocus) {
+          onFocus(e);
+        }
+      }}
+      onBlur={(e) => {
+        if (onBlur) {
+          onBlur(e);
+        }
+      }}
+      errorMessage={error}
+      isInvalid={Boolean(error)}
     />
   );
 };

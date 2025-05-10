@@ -127,7 +127,7 @@ const Leadership = () => {
           {
             image: "https://heroui.com/images/hero-card-complete.jpeg",
             name: "Daniel Sedoh",
-            position: "Managing Distribution & Marketing Manager",
+            position: "Distribution & Marketing Manager",
           },
           {
             image: "https://heroui.com/images/hero-card-complete.jpeg",

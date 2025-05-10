@@ -17,7 +17,7 @@ interface ButtonProps {
   className?: string
   startContent?: ReactNode | ReactElement | JSX.Element;
   endContent?: ReactNode | ReactElement | JSX.Element;
-
+  
 }
 
 export default function Button({

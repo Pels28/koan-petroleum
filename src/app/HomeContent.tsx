@@ -12,6 +12,7 @@ import ClientReviews from "./ClientReviews";
 import HomeContact from "./HomeContact";
 import Subscribe from "./Subscribe";
 import { motion } from "framer-motion";
+import GoogleReviews from "@/components/GoogleReviews";
 
 const HomeContent = () => {
   return (
@@ -85,7 +86,7 @@ const HomeContent = () => {
 
       <div className="w-full font-montserrat bg-tertiary flex flex-col lg:flex-row m-0 place-items-stretch place-content-between">
         {/* Left Column */}
-        <div className="p-6 sm:p-8 md:p-10 flex flex-col gap-3 sm:gap-4 md:gap-5 w-full lg:w-[60%]">
+        <div className="p-6 sm:p-8 md:p-10 flex flex-col gap-3 sm:gap-4 md:gap-5 w-full lg:w-[73%]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,14 +123,14 @@ const HomeContent = () => {
             className="text-sm sm:text-base md:text-lg"
           >
             KOAN Petroleum offers a range of services that ensures quality fuel,
-            LPG, lubrication, and reliable transport solutions across Ghana
+            LPG, variety range of lubricants or lubricating oils, and reliable transport solutions across Ghana
           </motion.p>
 
-          <div className="space-y-2 sm:space-y-3 md:space-y-4 mt-3 sm:mt-4 md:mt-6 z-10">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 mt-3 sm:mt-4 md:mt-6 z-10 w">
             {[
               "Premium Fuel Stations Nationwide",
               "High-Quality Lubricants & Engine Oils",
-              "Industrial & Mining Fuel Solutions",
+              "Industrial , Agricultural & Mining Fuel Solutions",
               "Reliable Transport & Logistics",
             ].map((service, index) => (
               <motion.div
@@ -304,6 +305,7 @@ const HomeContent = () => {
       <div className="bg-station h-[500px] bg-center bg-cover bg-no-repeat "></div>
       <HomeContact />
       <Subscribe />
+      <GoogleReviews/>
     </section>
   );
 };

@@ -12,8 +12,20 @@ import TextArea from "@/components/TextArea";
 import { IoIosSend } from "react-icons/io";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
+import { Formik } from "formik";
+import * as Yup from "yup";
+import { toast } from "react-toastify";
+import { useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactUsContent = () => {
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const recaptchaRef = useRef(null);
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+  };
+
   const cards = [
     {
       icon: <FaLocationDot size={30} className="text-white" />,
@@ -108,10 +120,11 @@ const ContactUsContent = () => {
       <div className="bg-gradient-to-r h-[150px]  from-primary via-secondary to-tertiary"></div>
 
       <div className="bg-white p-6 sm:p-8 md:p-10 grid grid-cols-1 lg:grid-cols-3">
+        {/* Left Column - WhatsApp Card */}
         <div className="col-span-1 place-items-center place-content-center mb-8 lg:mb-0">
           <div className="bg-primary text-white w-full max-w-xs sm:max-w-sm rounded-[40px] p-6 sm:p-8 flex flex-col items-center space-y-4 sm:space-y-5 shadow-lg">
             <div className="bg-white text-primary p-4 sm:p-5 rounded-full">
-              <FaWhatsapp size={30}  />
+              <FaWhatsapp size={30} />
             </div>
             <h3 className="text-lg sm:text-xl font-semibold">Chat With Us!</h3>
             <p className="text-center text-xs sm:text-sm">
@@ -130,7 +143,10 @@ const ContactUsContent = () => {
             </Button>
           </div>
         </div>
+
+        {/* Right Column - Contact Form */}
         <div className="col-span-1 lg:col-span-2 place-items-center">
+          {/* Header */}
           <div className="p-4 sm:p-5 flex flex-col items-center justify-center gap-4 sm:gap-5 w-full">
             <Chip>
               <div className="flex flex-row items-center gap-2 sm:gap-3 md:gap-4">
@@ -141,57 +157,163 @@ const ContactUsContent = () => {
             </Chip>
           </div>
 
-          <div className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
+          <div className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4 text-center">
             <span className="text-primary">Reach</span>& Get in Touch With Us!
           </div>
 
-          <div className="w-full md:w-[90%] lg:w-[80%]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              <Input
-                size="lg"
-                label="Your Name"
-                type="text"
-                labelPlacement="outside"
-                isRequired
-              />
-              <Input
-                size="lg"
-                label="Your Email"
-                type="email"
-                labelPlacement="outside"
-                isRequired
-              />
-              <Input
-                size="lg"
-                label="Your Number"
-                type="tel"
-                labelPlacement="outside"
-                isRequired
-              />
-              <Input
-                size="lg"
-                label="Your Subject"
-                type="text"
-                labelPlacement="outside"
-                isRequired
-              />
-              <div className="col-span-1 sm:col-span-2 mt-3 sm:mt-4">
-                <TextArea />
-              </div>
+          {/* Form with reCAPTCHA validation */}
+          <Formik
+            initialValues={{
+              username: "",
+              email: "",
+              message: "",
+              number: "",
+            }}
+            validateOnBlur
+            validateOnChange={false}
+            validationSchema={Yup.object({
+              username: Yup.string().trim().required("Username is required"),
+              email: Yup.string()
+                .trim()
+                .email("Invalid Email")
+                .required("Email is required"),
+              message: Yup.string().required("Message should not be empty"),
+              number: Yup.number().required("Number is required"),
+            })}
+            onSubmit={async (values, { setSubmitting, resetForm }) => {
+              if (!captchaValue) {
+                toast.warning("Please verify you are not a robot");
+                setSubmitting(false);
+                return;
+              }
 
-              <div className="col-span-1 sm:col-span-2">
-                <Button
-                  endContent={<IoIosSend />}
-                  color="primary"
-                  radius="full"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                >
-                  Send Message
-                </Button>
+              try {
+                const response = await fetch("/api/contact-us", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    username: values.username,
+                    email: values.email,
+                    message: values.message,
+                    number: values.number,
+                    captcha: captchaValue,
+                  }),
+                });
+
+                if (response.ok) {
+                  toast.success("Message sent successfully!");
+                  resetForm();
+                  // recaptchaRef.current?.reset();
+                  // setCaptchaValue(null);
+                } else {
+                  const data = await response.json();
+                  toast.error(data.message || "Failed to send message");
+                }
+              } catch (error) {
+                console.error("Submission error:", error);
+                toast.error("Something went wrong");
+              } finally {
+                setSubmitting(false);
+              }
+            }}
+          >
+            {({
+              handleSubmit,
+              handleChange,
+              handleBlur,
+              values,
+              touched,
+              errors,
+              isSubmitting,
+            }) => (
+              <div className="w-full md:w-[90%] lg:w-[80%] mx-auto">
+                <form onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                    {/* Form fields remain the same */}
+                    <Input
+                      size="lg"
+                      name="username"
+                      label="Your Name"
+                      type="text"
+                      labelPlacement="outside"
+                      isRequired
+                      value={values.username}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={touched.username ? errors.username : undefined}
+                    />
+                    <Input
+                      size="lg"
+                      name="email"
+                      label="Your Email"
+                      type="email"
+                      labelPlacement="outside"
+                      isRequired
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={touched.email ? errors.email : undefined}
+                    />
+                    <Input
+                      size="lg"
+                      label="Your Number"
+                      type="tel"
+                      labelPlacement="outside"
+                      isRequired
+                      name="number"
+                      value={values.number}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={touched.number ? errors.number : undefined}
+                    />
+                    <Input
+                      size="lg"
+                      label="Your Subject"
+                      type="text"
+                      labelPlacement="outside"
+                    />
+                    <div className="col-span-1 sm:col-span-2 mt-3 sm:mt-4">
+                      <TextArea
+                        name="message"
+                        isRequired
+                        value={values.message}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        error={touched.message ? errors.message : undefined}
+                      />
+                    </div>
+
+                    <div className="col-span-1 sm:col-span-2">
+                      <Button
+                        endContent={<IoIosSend />}
+                        color="primary"
+                        radius="full"
+                        size="lg"
+                        className="w-full sm:w-auto"
+                        isLoading={isSubmitting}
+                        type="submit"
+                      >
+                        {isSubmitting ? "Submitting..." : "Send Message"}
+                      </Button>
+                    </div>
+                  </div>
+                </form>
+
+                {/* reCAPTCHA aligned with form width */}
+                <div className="mt-4 flex justify-center">
+                  <div className="w-full max-w-[304px] sm:max-w-none">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                      onChange={handleCaptchaChange}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            )}
+          </Formik>
         </div>
       </div>
       <iframe
