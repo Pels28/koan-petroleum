@@ -165,7 +165,7 @@ const ReviewsCarousel = () => {
                 </div>
                 <div>
                   <Link
-                    href={`https://search.google.com/local/writereview?placeid=${process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID}`}
+                    href={`https://search.google.com/local/writereview?placeid=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_ID}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
