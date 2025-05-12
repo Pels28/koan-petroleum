@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { Divider, Chip } from "@heroui/react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import AutoScroll from "embla-carousel-auto-scroll";
+// import AutoScroll from "embla-carousel-auto-scroll";
 import { GoogleReview, ReviewCard, StarIcon } from "./GoogleReviews";
 import { ReviewCardSkeleton } from "./ReviewSkeleton";
 export { StarIcon } from "./GoogleReviews";
@@ -19,11 +19,11 @@ const ReviewsCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, dragFree: true, align: "start" },
     [
-      AutoScroll({
-        playOnInit: true,
-        stopOnMouseEnter: true,
-        stopOnInteraction: false,
-      }),
+      // AutoScroll({
+      //   playOnInit: true,
+      //   stopOnMouseEnter: true,
+      //   stopOnInteraction: false,
+      // }),
     ]
   );
   const [selectedIndex, setSelectedIndex] = useState(0);
