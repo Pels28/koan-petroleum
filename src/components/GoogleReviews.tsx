@@ -16,7 +16,7 @@ export type GoogleReview = {
 
 export function ReviewCard({ review }: { review: GoogleReview }) {
   return (
-    <div className="bg-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto text-center font-montserrat">
+    <div className="bg-white p-8 rounded-xl shadow-lg max-w-5xl mx-auto text-center font-montserrat">
       {/* Star Rating */}
       <div className="flex justify-center mb-4">
         {[...Array(5)].map((_, i) => (
