@@ -98,6 +98,19 @@ const ReviewsCarousel = () => {
   const averageRating = calculateAverageRating();
   const totalReviews = reviews.length;
 
+
+
+  if (error)
+    return (
+      <div className="p-4 bg-red-50 rounded-lg font-montserrat">
+        <h3 className="text-red-600 font-medium">Something Went Wrong!</h3>
+        {error.details && <p className="text-sm text-red-500 mt-1">{error.details}</p>}
+      <p className="text-sm mt-2">
+        Please ensure the Google Places API is properly configured.
+      </p>
+      </div>
+    );
+
   return (
     <div className="mb-5">
       <div className="mx-auto px-0 w-full">
