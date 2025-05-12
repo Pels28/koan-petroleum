@@ -15,7 +15,7 @@ export async function GET() {
   try {
     const response = await client.placeDetails({
       params: {
-        place_id: process.env.GOOGLE_PLACE_ID,
+        place_id: process.env.NEXT_PUBLIC_GOOGLE_PLACES_ID!,
         key: process.env.GOOGLE_API_KEY,
         fields: ["reviews"],
       },
