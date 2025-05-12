@@ -11,6 +11,7 @@ export type GoogleReview = {
   relative_time_description: string;
   text: string;
   time: number;
+  review_id: string;
 };
 
 export function ReviewCard({ review }: { review: GoogleReview }) {
@@ -66,13 +67,13 @@ export function ReviewCard({ review }: { review: GoogleReview }) {
 
       {/* Google Logo */}
       <div className="mt-6 flex justify-center">
-      <Link
-              href={review.author_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-        <FcGoogle className="h-11 w-12" />
+        <Link
+          href={`https://www.google.com/maps/place/?q=place_id:${process.env.NEXT_PUBLIC_GOOGLE_PLACES_ID}&authuser=0#lrd=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_ID},1,,,`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline"
+        >
+          <FcGoogle className="h-11 w-12" />
         </Link>
       </div>
     </div>
