@@ -19,7 +19,7 @@ export async function GET() {
         key: process.env.GOOGLE_API_KEY,
         fields: ["reviews"],
       },
-      timeout: 1000, // 1 second timeout
+      timeout: 3000, // 1 second timeout
     });
 
     if (response.data.status !== "OK") {

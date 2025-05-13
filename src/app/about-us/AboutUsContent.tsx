@@ -226,7 +226,11 @@ const AboutUsContent = () => {
           </div>
         </div>
       </div>
+      
       <Leadership />
+      
+      {/* Elfsight Google Reviews Widget */}
+   
     </section>
   );
 };

@@ -8,10 +8,11 @@ import { MdMiscellaneousServices } from "react-icons/md";
 import { RiOilLine } from "react-icons/ri";
 import { GiMining } from "react-icons/gi";
 import { MdOutlineEmojiTransportation } from "react-icons/md";
-import ClientReviews from "./ClientReviews";
 import HomeContact from "./HomeContact";
 import Subscribe from "./Subscribe";
 import { motion } from "framer-motion";
+
+import ReviewsCarousel from "@/components/ReviewsCarousel";
 
 
 const HomeContent = () => {
@@ -300,12 +301,15 @@ const HomeContent = () => {
           </motion.div>
         </div>
       </div>
-      <ClientReviews />
+      {/* <ClientReviews /> */}
       <div className="h-[100px] bg-gradient-to-l  from-primary via-secondary to-tertiary"></div>
       <div className="bg-station h-[500px] bg-center bg-cover bg-no-repeat "></div>
       <HomeContact />
       <Subscribe />
-      {/* <GoogleReviews/> */}
+
+      <ReviewsCarousel/>
+      
+   
     </section>
   );
 };

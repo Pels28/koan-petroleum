@@ -1,7 +1,9 @@
-'use client';
-import { useEffect, useState } from 'react';
+"use client";
+import { Image } from "@heroui/react";
+import { FcGoogle } from "react-icons/fc";
+import Link from "next/link";
 
-type GoogleReview = {
+export type GoogleReview = {
   author_name: string;
   author_url: string;
   profile_photo_url: string;
@@ -11,93 +13,76 @@ type GoogleReview = {
   time: number;
 };
 
-export default function GoogleReviews() {
-  const [reviews, setReviews] = useState<GoogleReview[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<{message: string; details?: string} | null>(null);
+export function ReviewCard({ review }: { review: GoogleReview }) {
+  return (
+    <div className="bg-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto text-center font-montserrat">
+      {/* Star Rating */}
+      <div className="flex justify-center mb-4">
+        {[...Array(5)].map((_, i) => (
+          <StarIcon key={i} filled={i < review.rating} />
+        ))}
+      </div>
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await fetch('/api/reviews');
-        
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.details || errorData.error);
-        }
-
-        const data = await response.json();
-        setReviews(data);
-      } catch (err) {
-        setError({
-          message: 'Failed to load reviews',
-          details: err instanceof Error ? err.message : 'Unknown error'
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchReviews();
-  }, []);
-
-  if (loading) return <div className="p-4 text-center">Loading reviews...</div>;
-  
-  if (error) return (
-    <div className="p-4 bg-red-50 rounded-lg">
-      <h3 className="text-red-600 font-medium">{error.message}</h3>
-      {error.details && <p className="text-sm text-red-500 mt-1">{error.details}</p>}
-      <p className="text-sm mt-2">
-        Please ensure the Google Places API is properly configured.
+      {/* Review Text */}
+      <p className="text-gray-600 text-lg italic mb-6">
+        &quot;{review.text}&quot;
       </p>
-    </div>
-  );
 
-  return (
-    <div className="space-y-4">
-      <h2 className="text-xl font-semibold">Customer Reviews</h2>
-      {reviews.length === 0 ? (
-        <p>No reviews available yet</p>
-      ) : (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((review) => (
-            <ReviewCard key={review.time} review={review} />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-function ReviewCard({ review }: { review: GoogleReview }) {
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <div className="flex items-center mb-4">
-        <img
+      {/* Author Info */}
+      <div className="flex flex-col items-center gap-3">
+        <Image
           src={review.profile_photo_url}
           alt={review.author_name}
-          className="w-12 h-12 rounded-full mr-4"
+          className="w-12 h-12 rounded-full"
+          width={48}
+          height={48}
+          // onError={(e) => {
+          //   (e.target as HTMLImageElement).style.display = 'none';
+          // }}
         />
         <div>
-          <h3 className="font-semibold">{review.author_name}</h3>
-          <div className="flex">
-            {[...Array(5)].map((_, i) => (
-              <StarIcon key={i} filled={i < review.rating} />
-            ))}
-          </div>
+          <h3 className="font-semibold text-gray-900 text-lg">
+            <Link
+              href={review.author_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              {review.author_name}
+            </Link>
+          </h3>
+          <p className="text-sm text-gray-500 mt-1">
+            {review.relative_time_description}
+          </p>
+          <p className="text-sm text-gray-500 mt-1">
+            {new Date(review.time * 1000).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </p>
         </div>
       </div>
-      <p className="text-gray-600">{review.text}</p>
-      <p className="text-sm text-gray-400 mt-2">
-        {review.relative_time_description}
-      </p>
+
+      {/* Google Logo */}
+      <div className="mt-6 flex justify-center">
+      <Link
+              href={review.author_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+        <FcGoogle className="h-11 w-12" />
+        </Link>
+      </div>
     </div>
   );
 }
 
-function StarIcon({ filled }: { filled: boolean }) {
+export function StarIcon({ filled }: { filled: boolean }) {
   return (
     <svg
-      className={`w-5 h-5 ${filled ? 'text-yellow-400' : 'text-gray-300'}`}
+      className={`w-7 h-7 ${filled ? "text-yellow-400" : "text-gray-300"}`}
       fill="currentColor"
       viewBox="0 0 20 20"
     >
@@ -105,14 +90,3 @@ function StarIcon({ filled }: { filled: boolean }) {
     </svg>
   );
 }
-
-// export type GoogleReview = {
-//   author_name: string;
-//   author_url: string;
-//   language: string;
-//   profile_photo_url: string;
-//   rating: number;
-//   relative_time_description: string;
-//   text: string;
-//   time: number;
-// };

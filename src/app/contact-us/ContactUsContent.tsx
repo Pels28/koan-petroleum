@@ -324,6 +324,17 @@ const ContactUsContent = () => {
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       />
+
+      <div className="p-10 max-md:p-5">
+        <script
+          src="https://static.elfsight.com/platform/platform.js"
+          async
+        ></script>
+        <div
+          className="elfsight-app-80b967a6-fb9e-487c-8cd3-4ecac9296a20"
+          data-elfsight-app-lazy
+        ></div>
+      </div>
     </section>
   );
 };
