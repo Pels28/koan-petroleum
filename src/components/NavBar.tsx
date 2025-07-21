@@ -10,7 +10,7 @@ import {
 } from "@heroui/react";
 import Link from "next/link";
 import Image from "next/image";
-import KoanLogo from "@public/images/koan.jpg";
+import KoanLogo from "@public/images/koan-removebg-preview.png";
 import { usePathname } from "next/navigation";
 import Button from "./Button";
 import { FaFacebook } from "react-icons/fa";
