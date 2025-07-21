@@ -66,7 +66,7 @@ export default function Menu() {
 
       {/* Left side - Brand Logo */}
       <NavbarBrand className="mr-10">
-        <div className="relative w-40 h-16">
+        <div className="relative w-40 h-14">
           <Image
             src={KoanLogo}
             fill
