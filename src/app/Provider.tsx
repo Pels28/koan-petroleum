@@ -4,6 +4,7 @@ import { HeroUIProvider } from "@heroui/react";
 import { ReactElement, ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ForceLightMode from "./ForceLightMode";
 
 interface ProviderProps {
   children: ReactNode | ReactElement;
@@ -26,6 +27,7 @@ const Provider = ({ children }: ProviderProps) => {
         style={{ minWidth: 400 }}
         toastStyle={{ marginInlineEnd: 20 }} // Use toastStyle instead of bodyStyle
       />
+      <ForceLightMode />
     </HeroUIProvider>
   );
 };
