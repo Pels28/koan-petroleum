@@ -145,59 +145,61 @@ const ReviewsCarousel = () => {
 
         {!error && !loading && (
           <>
-            <div className="bg-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto text-center font-montserrat mb-6">
-              <div className="flex items-center justify-between gap-4 font-montserrat">
-                <div className="flex items-center gap-2">
-                  <span className="ml-2 text-2xl font-semibold">
-                    {averageRating.toFixed(1)}
-                  </span>
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <StarIcon
-                        key={i}
-                        filled={i < Math.round(averageRating)}
-                      />
-                    ))}
-                  </div>
+          <div className="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg max-w-4xl mx-auto text-center font-montserrat mb-6">
+  <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+    {/* Rating Section */}
+    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 w-full md:w-auto">
+      <div className="flex items-center gap-2">
+        <span className="text-2xl font-semibold">
+          {averageRating.toFixed(1)}
+        </span>
+        <div className="flex items-center">
+          {[...Array(5)].map((_, i) => (
+            <StarIcon
+              key={i}
+              filled={i < Math.round(averageRating)}
+          // Ensure consistent star size
+            />
+          ))}
+        </div>
+      </div>
+      
+      <div className="flex items-center gap-2">
+        <span className="text-sm sm:text-base">
+          {totalReviews.toLocaleString()} review(s) on
+        </span>
+        <Image
+          src="/images/google-logo.png"
+          width={80}
+          height={30}
+          alt="google-logo"
+          className="h-10 sm:h-16 w-auto" // Responsive image sizing
+        />
+      </div>
+    </div>
 
-                  {/* <a
-                  href={`https://search.google.com/local/writereview?placeid=${process.env.GOOGLE_PLACE_ID}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors"
-                > */}
-                  <span>{totalReviews.toLocaleString()} review(s) on</span>
-                  {/* <FcGoogle className="h-8 w-8" /> */}
-
-                  <Image
-                    className="ml-[-12px] pl-0"
-                    src="/images/google-logo.png"
-                    width={120}
-                    height={50}
-                    alt="google-logo"
-                  />
-                </div>
-                <div>
-                  <Link
-                    href={`https://search.google.com/local/writereview?placeid=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_ID}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button
-                      size="lg"
-                      radius="md"
-                      color="primary"
-                      variant="solid"
-                      endContent={<FcGoogle className="w-5 h-5" />}
-                    >
-                      Review us on Google
-                    </Button>
-                  </Link>
-                </div>
-
-                {/* </a> */}
-              </div>
-            </div>
+    {/* Button Section */}
+    <div className="w-full sm:w-auto">
+      <Link
+        href={`https://search.google.com/local/writereview?placeid=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_ID}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full sm:w-auto"
+      >
+        <Button
+          size="md" // Changed from lg to md for mobile
+          radius="md"
+          color="primary"
+          variant="solid"
+          className="w-full sm:w-auto" // Full width on mobile, auto on larger screens
+          endContent={<FcGoogle className="w-4 h-4 sm:w-5 sm:h-5" />} // Responsive icon
+        >
+          <span className="text-sm sm:text-base">Review us on Google</span>
+        </Button>
+      </Link>
+    </div>
+  </div>
+</div>
             <div className="relative overflow-hidden w-full mb-2">
               <div className="embla__viewport w-full" ref={emblaRef}>
                 <div className="embla__container flex">

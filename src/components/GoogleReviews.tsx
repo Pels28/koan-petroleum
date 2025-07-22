@@ -83,7 +83,7 @@ export function ReviewCard({ review }: { review: GoogleReview }) {
 export function StarIcon({ filled }: { filled: boolean }) {
   return (
     <svg
-      className={`w-7 h-7 ${filled ? "text-yellow-400" : "text-gray-300"}`}
+      className={`w-5 h-5 ${filled ? "text-yellow-400" : "text-gray-300"}`}
       fill="currentColor"
       viewBox="0 0 20 20"
     >
