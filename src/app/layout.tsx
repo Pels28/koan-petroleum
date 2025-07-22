@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="min-h-screen overflow-x-hidden">
       <body
-        className={`${poppins.variable} ${montserrat.variable} ${lato.variable} antialiased min-h-screen flex flex-col overflow-x-hidden`}
+        className={`${poppins.variable} ${montserrat.variable} ${lato.variable} light antialiased min-h-screen flex flex-col overflow-x-hidden`}
       >
         <Provider>
           {/* Tawk.to Script */}
@@ -100,7 +100,7 @@ export default function RootLayout({
               <FuelPricesBoard />
             </div>
           </div>
-          
+
           <Menu />
 
           <main className="flex-grow w-full relative overflow-hidden">

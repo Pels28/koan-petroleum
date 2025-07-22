@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import AboutUsContent from "./AboutUsContent";
 
 
+
 export const metadata: Metadata = {
   title: "About KOAN Petroleum | Our Story, Mission & Values",
   description: "Discover KOAN Petroleum's journey, mission, and commitment to delivering quality energy solutions. Learn about our values and vision for the future.",
@@ -23,7 +24,10 @@ export const metadata: Metadata = {
 
 const AboutUs = () => {
   return (
+    <>
    <AboutUsContent/>
+
+   </>
   );
 };
 
