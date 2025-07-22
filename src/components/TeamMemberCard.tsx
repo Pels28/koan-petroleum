@@ -14,7 +14,7 @@ const TeamMemberCard: React.FC<TeamMemberProps> = ({ name, position, }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      className="bg-white dark:bg-[#1f1f1f] rounded-2xl shadow-lg overflow-hidden transition-all duration-300  w-full group"
+      className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300  w-full group"
     >
       <div className="relative overflow-hidden">
         <Image
@@ -25,8 +25,8 @@ const TeamMemberCard: React.FC<TeamMemberProps> = ({ name, position, }) => {
       </div>
 
       <div className="p-4 text-center">
-        <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{name}</h3>
-        <p className="text-sm text-gray-500 dark:text-gray-300">{position}</p>
+        <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
+        <p className="text-sm text-gray-500">{position}</p>
       </div>
     </motion.div>
   );

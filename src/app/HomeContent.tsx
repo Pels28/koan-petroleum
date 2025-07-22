@@ -185,7 +185,7 @@ const HomeContent = () => {
           >
             {/* KOAN Retail Card */}
             <motion.div
-              className="relative h-64 sm:h-72 md:h-80 group overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all"
+              className="relative h-64 sm:h-72 md:h-80 group overflow-hidden rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -193,17 +193,17 @@ const HomeContent = () => {
             >
               <div className="absolute inset-0 flex flex-col p-4 sm:p-5 md:p-6">
                 <div className="flex flex-col items-center justify-center h-full transition-all duration-500 group-hover:h-1/2 group-hover:-translate-y-4">
-                  <div className="p-3 sm:p-4 bg-primary-100/80 dark:bg-primary-900/20 rounded-xl backdrop-blur-sm border border-primary-200 dark:border-primary-700 mb-3 sm:mb-4 transition-all group-hover:scale-110">
-                    <FaStore className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary-600 dark:text-primary-400" />
+                  <div className="p-3 sm:p-4 bg-primary-100/80  rounded-xl backdrop-blur-sm border border-primary-200  mb-3 sm:mb-4 transition-all group-hover:scale-110">
+                    <FaStore className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary-600 " />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 dark:text-white transition-all group-hover:text-primary-600 dark:group-hover:text-primary-400">
+                  <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800  transition-all group-hover:text-primary-600 ">
                     KOAN RETAIL
                   </h3>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-0 bg-secondary-50/80 dark:bg-secondary-900/20 backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:h-1/2 border-t border-secondary-200 dark:border-secondary-700">
+                <div className="absolute bottom-0 left-0 right-0 h-0 bg-secondary-50/80 backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:h-1/2 border-t border-secondary-200 ">
                   <div className="p-4 sm:p-5 md:p-6 opacity-0 translate-y-5 transition-all duration-300 delay-200 group-hover:opacity-100 group-hover:translate-y-0">
-                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+                    <p className="text-xs sm:text-sm text-gray-600">
                       Our fuel stations provide premium fuel and top-tier
                       customer service across multiple regions.
                     </p>
@@ -214,7 +214,7 @@ const HomeContent = () => {
 
             {/* KOAN Lubricants Card */}
             <motion.div
-              className="relative h-64 sm:h-72 md:h-80 group overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all"
+              className="relative h-64 sm:h-72 md:h-80 group overflow-hidden rounded-xl border border-gray-200  shadow-sm hover:shadow-md transition-all"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -222,17 +222,17 @@ const HomeContent = () => {
             >
               <div className="absolute inset-0 flex flex-col p-4 sm:p-5 md:p-6">
                 <div className="flex flex-col items-center justify-center h-full transition-all duration-500 group-hover:h-1/2 group-hover:-translate-y-4">
-                  <div className="p-3 sm:p-4 bg-primary-100/80 dark:bg-primary-900/20 rounded-xl backdrop-blur-sm border border-primary-200 dark:border-primary-700 mb-3 sm:mb-4 transition-all group-hover:scale-110">
-                    <RiOilLine className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary-600 dark:text-primary-400" />
+                  <div className="p-3 sm:p-4 bg-primary-100/80  rounded-xl backdrop-blur-sm border border-primary-200  mb-3 sm:mb-4 transition-all group-hover:scale-110">
+                    <RiOilLine className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary-600 " />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 dark:text-white transition-all group-hover:text-primary-600 dark:group-hover:text-primary-400">
+                  <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800  transition-all group-hover:text-primary-600 ">
                     KOAN LUBRICANTS
                   </h3>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-0 bg-secondary-50/80 dark:bg-secondary-900/20 backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:h-1/2 border-t border-secondary-200 dark:border-secondary-700">
+                <div className="absolute bottom-0 left-0 right-0 h-0 bg-secondary-50/80  backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:h-1/2 border-t border-secondary-200 ">
                   <div className="p-4 sm:p-5 md:p-6 opacity-0 translate-y-5 transition-all duration-300 delay-200 group-hover:opacity-100 group-hover:translate-y-0">
-                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+                    <p className="text-xs sm:text-sm text-gray-600 ">
                       High quality lubricants and engine oils available at all
                       our retail outlets.
                     </p>
@@ -243,7 +243,7 @@ const HomeContent = () => {
 
             {/* KOAN Mining Card */}
             <motion.div
-              className="relative h-64 sm:h-72 md:h-80 group overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all"
+              className="relative h-64 sm:h-72 md:h-80 group overflow-hidden rounded-xl border border-gray-200  shadow-sm hover:shadow-md transition-all"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -251,17 +251,17 @@ const HomeContent = () => {
             >
               <div className="absolute inset-0 flex flex-col p-4 sm:p-5 md:p-6">
                 <div className="flex flex-col items-center justify-center h-full transition-all duration-500 group-hover:h-1/2 group-hover:-translate-y-4">
-                  <div className="p-3 sm:p-4 bg-primary-100/80 dark:bg-primary-900/20 rounded-xl backdrop-blur-sm border border-primary-200 dark:border-primary-700 mb-3 sm:mb-4 transition-all group-hover:scale-110">
-                    <GiMining className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary-600 dark:text-primary-400" />
+                  <div className="p-3 sm:p-4 bg-primary-100/80  rounded-xl backdrop-blur-sm border border-primary-200  mb-3 sm:mb-4 transition-all group-hover:scale-110">
+                    <GiMining className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary-600 " />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 dark:text-white transition-all group-hover:text-primary-600 dark:group-hover:text-primary-400">
+                  <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800  transition-all group-hover:text-primary-600 ">
                     KOAN MINING
                   </h3>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-0 bg-secondary-50/80 dark:bg-secondary-900/20 backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:h-1/2 border-t border-secondary-200 dark:border-secondary-700">
+                <div className="absolute bottom-0 left-0 right-0 h-0 bg-secondary-50/80  backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:h-1/2 border-t border-secondary-200 ">
                   <div className="p-4 sm:p-5 md:p-6 opacity-0 translate-y-5 transition-all duration-300 delay-200 group-hover:opacity-100 group-hover:translate-y-0">
-                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+                    <p className="text-xs sm:text-sm text-gray-600 ">
                       Quality petroleum products for mining companies and
                       institutions.
                     </p>
@@ -272,7 +272,7 @@ const HomeContent = () => {
 
             {/* Transport & Logistics Card */}
             <motion.div
-              className="relative h-64 sm:h-72 md:h-80 group overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all"
+              className="relative h-64 sm:h-72 md:h-80 group overflow-hidden rounded-xl border border-gray-200  shadow-sm hover:shadow-md transition-all"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -280,17 +280,17 @@ const HomeContent = () => {
             >
               <div className="absolute inset-0 flex flex-col p-4 sm:p-5 md:p-6">
                 <div className="flex flex-col items-center justify-center h-full transition-all duration-500 group-hover:h-1/2 group-hover:-translate-y-4">
-                  <div className="p-3 sm:p-4 bg-primary-100/80 dark:bg-primary-900/20 rounded-xl backdrop-blur-sm border border-primary-200 dark:border-primary-700 mb-3 sm:mb-4 transition-all group-hover:scale-110">
-                    <MdOutlineEmojiTransportation className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary-600 dark:text-primary-400" />
+                  <div className="p-3 sm:p-4 bg-primary-100/80  rounded-xl backdrop-blur-sm border border-primary-200  mb-3 sm:mb-4 transition-all group-hover:scale-110">
+                    <MdOutlineEmojiTransportation className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary-600 " />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 dark:text-white transition-all group-hover:text-primary-600 dark:group-hover:text-primary-400">
+                  <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800  transition-all group-hover:text-primary-600 ">
                     TRANSPORT & LOGISTICS
                   </h3>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-0 bg-secondary-50/80 dark:bg-secondary-900/20 backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:h-1/2 border-t border-secondary-200 dark:border-secondary-700">
+                <div className="absolute bottom-0 left-0 right-0 h-0 bg-secondary-50/80  backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:h-1/2 border-t border-secondary-200 ">
                   <div className="p-4 sm:p-5 md:p-6 opacity-0 translate-y-5 transition-all duration-300 delay-200 group-hover:opacity-100 group-hover:translate-y-0">
-                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+                    <p className="text-xs sm:text-sm text-gray-600 ">
                       Reliable fuel distribution and logistics services
                       nationwide.
                     </p>
